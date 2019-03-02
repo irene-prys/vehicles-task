@@ -8,4 +8,6 @@ public interface VehiclesManager {
     Vehicle findByName(String vehicleName);
 
     List<Vehicle> findInRectangle(int topLeftLat, int topLeftLng, int bottomRightLat, int bottomRightLng);
+
+    void addOrUpdateVehicle(Vehicle vehicle);
 }

@@ -16,4 +16,9 @@ public class VehiclesRedisManager implements VehiclesManager {
     public List<Vehicle> findInRectangle(int topLeftLat, int topLeftLng, int bottomRightLat, int bottomRightLng) {
         return null;
     }
+
+    @Override
+    public void addOrUpdateVehicle(Vehicle vehicle) {
+        // todo: need to implement
+    }
 }

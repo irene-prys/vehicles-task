@@ -26,6 +26,7 @@ public class VehiclesCollectionManager implements VehiclesManager {
         return foundVehicles;
     }
 
+    @Override
     public void addOrUpdateVehicle(Vehicle vehicle) {
         vehicleCollection.addOrUpdate(vehicle);
     }
