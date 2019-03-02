@@ -16,7 +16,7 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PostMapping
-    public ResponseEntity<Void> addVehicle() {
+    public ResponseEntity<Void> addVehicle(@RequestBody Vehicle vehicle) {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -26,7 +26,8 @@ public class VehicleController {
     }
 
     @GetMapping("/rectangle/topLeftLat/{topLeftLat}/topLeftLng/{topLeftLng}/bottomRightLat/{bottomRightLat}/bottomRightLng/{bottomRightLng}")
-    public ResponseEntity<List<Vehicle>> findInRectangle(int topLeftLat, int topLeftLng, int bottomRightLat, int bottomRightLng) {
+    public ResponseEntity<List<Vehicle>> findInRectangle(@PathVariable int topLeftLat, @PathVariable int topLeftLng,
+                                                         @PathVariable int bottomRightLat, @PathVariable int bottomRightLng) {
         List<Vehicle> vehicles = vehicleService.findInRectangle(topLeftLat, topLeftLng, bottomRightLat, bottomRightLng);
         return new ResponseEntity<>(vehicles, HttpStatus.OK);
     }
