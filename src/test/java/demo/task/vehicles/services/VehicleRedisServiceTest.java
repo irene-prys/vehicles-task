@@ -1,5 +1,6 @@
-package demo.task.vehicles.managers;
+package demo.task.vehicles.services;
 
+import demo.task.vehicles.managers.VehiclesManager;
 import demo.task.vehicles.models.Vehicle;
 import demo.task.vehicles.services.VehicleServiceImpl;
 import demo.task.vehicles.utils.GeoCalculator;
@@ -18,7 +19,7 @@ import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class VehicleRedisManagerTest {
+public class VehicleRedisServiceTest {
     @InjectMocks
     private VehicleServiceImpl vehicleService;
     @Mock
