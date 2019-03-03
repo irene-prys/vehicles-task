@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface VehiclesManager {
     Vehicle findByName(String vehicleName);
 
-    Optional<List<Vehicle>> findInSquare(double topLeftLng, double topLeftLat, double bottomL);
+    Optional<List<Vehicle>> findInSquare(double topLeftLng, double topLeftLat, double distance);
 
     void addOrUpdateVehicle(Vehicle vehicle);
 }
