@@ -27,9 +27,9 @@ public class VehicleController {
     }
 
     @GetMapping("/rectangle/topLeftLat/{topLeftLat}/topLeftLng/{topLeftLng}/bottomRightLat/{bottomRightLat}/bottomRightLng/{bottomRightLng}")
-    public ResponseEntity<List<Vehicle>> findInRectangle(@PathVariable int topLeftLat, @PathVariable int topLeftLng,
-                                                         @PathVariable int bottomRightLat, @PathVariable int bottomRightLng) {
-        List<Vehicle> vehicles = vehicleService.findInRectangle(topLeftLat, topLeftLng, bottomRightLat, bottomRightLng);
+    public ResponseEntity<List<Vehicle>> findInRectangle(@PathVariable double topLeftLat, @PathVariable double topLeftLng,
+                                                         @PathVariable double bottomRightLat, @PathVariable double bottomRightLng) {
+        List<Vehicle> vehicles = vehicleService.findInRectangle(topLeftLng, topLeftLat, bottomRightLng, bottomRightLat);
         return new ResponseEntity<>(vehicles, HttpStatus.OK);
     }
 }

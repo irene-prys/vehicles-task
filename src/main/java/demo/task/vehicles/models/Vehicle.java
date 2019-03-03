@@ -2,20 +2,16 @@ package demo.task.vehicles.models;
 
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.GeoIndexed;
-import org.springframework.data.redis.core.index.Indexed;
 
-@RedisHash("vehicles2")
+@RedisHash("vehicles")
 public class Vehicle {
-//    @Id
-//    private String id;
-//    @Indexed
     @Id
     private String name;
-    @GeoIndexed  private Point location;
+    @GeoIndexed
+    private Point location;
 
     public Vehicle() {
     }
@@ -40,18 +36,4 @@ public class Vehicle {
     public void setLocation(Point location) {
         this.location = location;
     }
-
-
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Vehicle: [id=" + id + ", name=" + name + ", location=" + coordinates.getLongitude() + "; " + coordinates.getLatitude() + "]";
-//    }
 }

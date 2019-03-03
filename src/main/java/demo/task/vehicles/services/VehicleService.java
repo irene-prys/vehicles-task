@@ -9,6 +9,5 @@ public interface VehicleService {
 
     void create(Vehicle vehicle);
 
-    List<Vehicle> findInRectangle(int topLeftLng, int topLeftLat, int bottomRightLng, int bottomRightLat);
-
+    List<Vehicle> findInRectangle(double topLeftLng, double topLeftLat, double bottomRightLng, double bottomRightLat);
 }

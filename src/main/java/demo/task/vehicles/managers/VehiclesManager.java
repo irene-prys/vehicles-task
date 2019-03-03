@@ -4,12 +4,11 @@ import demo.task.vehicles.models.Vehicle;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public interface VehiclesManager {
     Vehicle findByName(String vehicleName);
 
-    List<Vehicle> findInSquare(double topLeftLng, double topLeftLat, double  distance);
+    Optional<List<Vehicle>> findInSquare(double topLeftLng, double topLeftLat, double bottomL);
 
     void addOrUpdateVehicle(Vehicle vehicle);
 }
