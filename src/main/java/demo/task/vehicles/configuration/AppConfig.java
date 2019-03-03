@@ -13,7 +13,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import redis.embedded.RedisServer;
+//import redis.embedded.RedisServer;
 
 @Configuration
 @PropertySource("classpath:application.yml")

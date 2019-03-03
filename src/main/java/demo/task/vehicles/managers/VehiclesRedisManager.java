@@ -3,10 +3,10 @@ package demo.task.vehicles.managers;
 import demo.task.vehicles.models.Vehicle;
 import demo.task.vehicles.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.geo.Box;
-import org.springframework.data.geo.Point;
+import org.springframework.data.geo.*;
 import org.springframework.stereotype.Component;
 
+import java.awt.geom.Point2D;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -29,13 +29,8 @@ public class VehiclesRedisManager implements VehiclesManager {
     }
 
     @Override
-    public List<Vehicle> findInRectangle(int topLeftLat, int topLeftLng, int bottomRightLat, int bottomRightLng) {
-        Box square = new Box(new Point(topLeftLng, topLeftLat), new Point(bottomRightLng, bottomRightLng));
-        Optional<Stream<Vehicle>> foundData = vehicleRepository.findByLocationWithin(square);
-        if(foundData.isPresent()) {
-            return foundData.get().collect(Collectors.toList());
-        }
-        return Collections.EMPTY_LIST;
+    public List<Vehicle> findInSquare(double topLeftLng, double topLeftLat, double  distance) {
+        return  vehicleRepository.findByLocationNear(new Point(topLeftLng, topLeftLat), new Distance(distance, Metrics.MILES));
     }
 
     @Override

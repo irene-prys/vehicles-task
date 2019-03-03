@@ -5,16 +5,17 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.GeoIndexed;
 import org.springframework.data.redis.core.index.Indexed;
 
-@RedisHash("vehicles")
+@RedisHash("vehicles2")
 public class Vehicle {
 //    @Id
 //    private String id;
 //    @Indexed
     @Id
     private String name;
-    private Point location;
+    @GeoIndexed  private Point location;
 
     public Vehicle() {
     }
