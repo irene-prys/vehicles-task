@@ -15,13 +15,13 @@ public class VehicleServiceImpl implements VehicleService {
     private VehiclesManager vehiclesManager;
 
     @Override
-    public void create(Vehicle vehicle) {
-        vehiclesManager.addOrUpdateVehicle(vehicle);
+    public Vehicle create(Vehicle vehicle) {
+        return vehiclesManager.addOrUpdateVehicle(vehicle);
     }
 
     @Override
     public Optional<Vehicle> findByName(String name) {
-        return vehiclesManager.findByName(name);
+        return vehiclesManager.findById(name);
     }
 
     @Override

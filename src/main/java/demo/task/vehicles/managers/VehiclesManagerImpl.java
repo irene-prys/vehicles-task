@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class VehiclesRedisManager implements VehiclesManager {
+public class VehiclesManagerImpl implements VehiclesManager {
 
     @Autowired
     private VehicleRepository vehicleRepository;
 
     @Override
-    public Optional<Vehicle> findByName(String vehicleName) {
-        return vehicleRepository.findById(vehicleName);
+    public Optional<Vehicle> findById(String id) {
+        return vehicleRepository.findById(id);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class VehiclesRedisManager implements VehiclesManager {
     }
 
     @Override
-    public void addOrUpdateVehicle(Vehicle vehicle) {
-        vehicleRepository.save(vehicle);
+    public Vehicle addOrUpdateVehicle(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
     }
 }

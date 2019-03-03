@@ -17,9 +17,8 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PostMapping
-    public ResponseEntity<Void> addVehicle(@RequestBody Vehicle vehicle) {
-        vehicleService.create(vehicle);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Vehicle> addVehicle(@RequestBody Vehicle vehicle) {
+        return new ResponseEntity<>(vehicleService.create(vehicle), HttpStatus.OK);
     }
 
     @GetMapping("/name/{name}")

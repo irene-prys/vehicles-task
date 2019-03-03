@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VehiclesManager {
-    Optional<Vehicle> findByName(String vehicleName);
+    Optional<Vehicle> findById(String id);
 
     Optional<List<Vehicle>> findInSquare(double topLeftLng, double topLeftLat, double bottomRightLng, double bottomRightLat);
 
-    void addOrUpdateVehicle(Vehicle vehicle);
+    Vehicle addOrUpdateVehicle(Vehicle vehicle);
 }

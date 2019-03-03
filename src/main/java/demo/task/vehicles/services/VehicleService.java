@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface VehicleService {
     Optional<Vehicle> findByName(String name);
 
-    void create(Vehicle vehicle);
+    Vehicle create(Vehicle vehicle);
 
     List<Vehicle> findInRectangle(double topLeftLng, double topLeftLat, double bottomRightLng, double bottomRightLat);
 }

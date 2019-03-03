@@ -9,24 +9,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "vehicles")
 public class Vehicle {
     @Id
-    private String name;
+    private String id;
     @GeoSpatialIndexed
     private Point location;
 
     public Vehicle() {
     }
 
-    public Vehicle(String name, Point location) {
-        this.name = name;
+    public Vehicle(String id, Point location) {
+        this.id = id;
         this.location = location;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Point getLocation() {
