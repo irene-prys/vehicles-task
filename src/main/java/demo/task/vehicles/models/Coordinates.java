@@ -1,11 +1,9 @@
 package demo.task.vehicles.models;
 
-import org.springframework.data.redis.core.index.GeoIndexed;
+//import org.springframework.data.redis.core.index.GeoIndexed;
 
 public class Coordinates {
-    @GeoIndexed
     private Integer latitude;
-    @GeoIndexed
     private Integer longitude;
 
     public Coordinates(Integer longitude, Integer latitude) {

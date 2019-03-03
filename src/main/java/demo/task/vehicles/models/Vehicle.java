@@ -3,14 +3,14 @@ package demo.task.vehicles.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Point;
-import org.springframework.data.redis.core.RedisHash;
-import org.springframework.data.redis.core.index.GeoIndexed;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@RedisHash("vehicles")
+@Document(collection = "vehicles")
 public class Vehicle {
     @Id
     private String name;
-    @GeoIndexed
+    @GeoSpatialIndexed
     private Point location;
 
     public Vehicle() {

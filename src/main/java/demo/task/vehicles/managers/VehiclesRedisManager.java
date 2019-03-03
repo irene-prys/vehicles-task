@@ -3,6 +3,7 @@ package demo.task.vehicles.managers;
 import demo.task.vehicles.models.Vehicle;
 import demo.task.vehicles.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Box;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Metrics;
 import org.springframework.data.geo.Point;
@@ -27,8 +28,9 @@ public class VehiclesRedisManager implements VehiclesManager {
     }
 
     @Override
-    public Optional<List<Vehicle>> findInSquare(double topLeftLng, double topLeftLat, double distance) {
-        return vehicleRepository.findByLocationNear(new Point(topLeftLng, topLeftLat), new Distance(distance, Metrics.KILOMETERS));
+    public Optional<List<Vehicle>> findInSquare(double topLeftLng, double topLeftLat, double bottomRightLng, double bottomRightLat) {
+        Box box = new Box(new Point(topLeftLng, topLeftLat), new Point(bottomRightLng, bottomRightLat));
+        return vehicleRepository.findByLocationWithin(box);
     }
 
     @Override
