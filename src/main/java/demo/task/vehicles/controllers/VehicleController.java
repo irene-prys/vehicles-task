@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/vehicles")
@@ -23,7 +24,9 @@ public class VehicleController {
 
     @GetMapping("/name/{name}")
     public ResponseEntity<Vehicle> findByName(@PathVariable String name) {
-        return new ResponseEntity<>(vehicleService.findByName(name), HttpStatus.OK);
+        Optional<Vehicle> vehicle = vehicleService.findByName(name);
+
+        return new ResponseEntity<>(vehicle.isPresent() ? vehicle.get() : null, vehicle.isPresent()? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/rectangle/topLeftLat/{topLeftLat}/topLeftLng/{topLeftLng}/bottomRightLat/{bottomRightLat}/bottomRightLng/{bottomRightLng}")

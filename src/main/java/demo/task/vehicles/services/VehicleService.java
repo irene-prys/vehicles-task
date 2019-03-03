@@ -3,9 +3,10 @@ package demo.task.vehicles.services;
 import demo.task.vehicles.models.Vehicle;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface VehicleService {
-    Vehicle findByName(String name);
+    Optional<Vehicle> findByName(String name);
 
     void create(Vehicle vehicle);
 

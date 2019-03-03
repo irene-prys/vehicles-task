@@ -4,8 +4,6 @@ import demo.task.vehicles.models.Vehicle;
 import demo.task.vehicles.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Box;
-import org.springframework.data.geo.Distance;
-import org.springframework.data.geo.Metrics;
 import org.springframework.data.geo.Point;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +17,8 @@ public class VehiclesRedisManager implements VehiclesManager {
     private VehicleRepository vehicleRepository;
 
     @Override
-    public Vehicle findByName(String vehicleName) {// todo: return optional
-        Optional<Vehicle> foundData = vehicleRepository.findById(vehicleName);
-        if (foundData.isPresent()) {
-            return foundData.get();
-        }
-        return null;
+    public Optional<Vehicle> findByName(String vehicleName) {
+        return vehicleRepository.findById(vehicleName);
     }
 
     @Override
