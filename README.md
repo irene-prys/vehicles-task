@@ -45,6 +45,10 @@ leftTop point and bottomRight point with the appropriate longitude and latitude)
 http://localhost:8080/vehicles/rectangle/topLeftLat/0/topLeftLng/0/bottomRightLat/3/bottomRightLng/5
 ```
 
+#### note
+In case you need to generate default data,
+there is a commented code in VehicleServiceImpl class 
+which generates 1 mln records in db during the app starting 
 
 
 
