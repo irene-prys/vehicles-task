@@ -10,7 +10,7 @@ mongodb should be installed and started
 project builds with maven <br/>
 to build the project run the standard command: 
 ```
-mvn clean install
+mvn clean package
 ``` 
 after that the jar with the name 'vehicles-0.0.1-SNAPSHOT.jar' will be created in folder 'target'
 
