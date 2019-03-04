@@ -1,7 +1,5 @@
 package demo.task.vehicles.controllers;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import demo.task.vehicles.models.Vehicle;
 import demo.task.vehicles.services.VehicleService;
 import org.junit.Before;
@@ -17,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collections;
@@ -43,8 +40,6 @@ public class VehicleControllerTest {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(vehiclesController).build();
     }
-
-
 
     @Test
     public void shouldHandleFindByName() throws Exception {
@@ -100,12 +95,5 @@ public class VehicleControllerTest {
                         "}}" +
                         "]"));
     }
-
-    private static byte[] convertObjectToJsonBytes(Object object) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        return mapper.writeValueAsBytes(object);
-    }
-
 
 }
